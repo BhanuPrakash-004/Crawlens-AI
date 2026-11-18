@@ -1,0 +1,2531 @@
+{
+  "website": "https://northstar.example/",
+  "completed_at": "2026-11-16T09:30:00+00:00",
+  "duration_seconds": 0.0,
+  "is_sample": true,
+  "pages_crawled": 12,
+  "overall_score": 78,
+  "classification": "Good",
+  "score_status": "partial",
+  "metrics": {
+    "metadata": {
+      "score": 67,
+      "weight": 25,
+      "passing": 8,
+      "evaluated": 12,
+      "unknown": 0,
+      "status": "measured"
+    },
+    "broken_links": {
+      "score": 93,
+      "weight": 25,
+      "passing": 37,
+      "evaluated": 40,
+      "unknown": 2,
+      "status": "measured"
+    },
+    "indexability": {
+      "score": 83,
+      "weight": 25,
+      "passing": 10,
+      "evaluated": 12,
+      "unknown": 0,
+      "status": "measured"
+    },
+    "headings": {
+      "score": 83,
+      "weight": 15,
+      "passing": 10,
+      "evaluated": 12,
+      "unknown": 0,
+      "status": "measured"
+    },
+    "structured_data": {
+      "score": 50,
+      "weight": 10,
+      "passing": 6,
+      "evaluated": 12,
+      "unknown": 0,
+      "status": "measured"
+    }
+  },
+  "issues": [
+    {
+      "id": "issue_6",
+      "metric": "indexability",
+      "severity": "high",
+      "page_url": "https://northstar.example/customers",
+      "title": "Review page indexability",
+      "observed": "HTTP 200; noindex detected.",
+      "expected": "HTTP 200 with no applicable noindex directive.",
+      "suggested_action": "Confirm whether this page should appear in search. For a public landing page, resolve non-200 responses and remove unintended noindex directives.",
+      "target_url": null,
+      "status_code": null,
+      "affected_source_pages": null,
+      "manual_review": false
+    },
+    {
+      "id": "issue_13",
+      "metric": "indexability",
+      "severity": "high",
+      "page_url": "https://northstar.example/careers",
+      "title": "Review page indexability",
+      "observed": "HTTP 200; noindex detected.",
+      "expected": "HTTP 200 with no applicable noindex directive.",
+      "suggested_action": "Confirm whether this page should appear in search. For a public landing page, resolve non-200 responses and remove unintended noindex directives.",
+      "target_url": null,
+      "status_code": null,
+      "affected_source_pages": null,
+      "manual_review": false
+    },
+    {
+      "id": "issue_15",
+      "metric": "broken_links",
+      "severity": "high",
+      "page_url": "https://northstar.example/",
+      "title": "Broken internal destination",
+      "observed": "HTTP 404",
+      "expected": "No HTTP 4xx or 5xx.",
+      "suggested_action": "Update the source link to a working destination or restore the missing page. Check restricted responses manually before changing links.",
+      "target_url": "https://northstar.example/docs/guide-12",
+      "status_code": 404,
+      "affected_source_pages": 1,
+      "manual_review": false
+    },
+    {
+      "id": "issue_16",
+      "metric": "broken_links",
+      "severity": "high",
+      "page_url": "https://northstar.example/pricing",
+      "title": "Broken internal destination",
+      "observed": "HTTP 404",
+      "expected": "No HTTP 4xx or 5xx.",
+      "suggested_action": "Update the source link to a working destination or restore the missing page. Check restricted responses manually before changing links.",
+      "target_url": "https://northstar.example/docs/guide-14",
+      "status_code": 404,
+      "affected_source_pages": 1,
+      "manual_review": false
+    },
+    {
+      "id": "issue_17",
+      "metric": "broken_links",
+      "severity": "high",
+      "page_url": "https://northstar.example/about",
+      "title": "Broken internal destination",
+      "observed": "HTTP 404",
+      "expected": "No HTTP 4xx or 5xx.",
+      "suggested_action": "Update the source link to a working destination or restore the missing page. Check restricted responses manually before changing links.",
+      "target_url": "https://northstar.example/docs/guide-3",
+      "status_code": 404,
+      "affected_source_pages": 1,
+      "manual_review": false
+    },
+    {
+      "id": "issue_1",
+      "metric": "metadata",
+      "severity": "medium",
+      "page_url": "https://northstar.example/features",
+      "title": "Improve page title & description",
+      "observed": "Title: 47 characters; description: 0 characters.",
+      "expected": "Title: 30\u201360 characters. Description: 70\u2013160 characters.",
+      "suggested_action": "Write a specific 30\u201360 character title and a useful 70\u2013160 character description that match the page.",
+      "target_url": null,
+      "status_code": null,
+      "affected_source_pages": null,
+      "manual_review": false
+    },
+    {
+      "id": "issue_2",
+      "metric": "metadata",
+      "severity": "medium",
+      "page_url": "https://northstar.example/pricing",
+      "title": "Improve page title & description",
+      "observed": "Title: 46 characters; description: 27 characters.",
+      "expected": "Title: 30\u201360 characters. Description: 70\u2013160 characters.",
+      "suggested_action": "Write a specific 30\u201360 character title and a useful 70\u2013160 character description that match the page.",
+      "target_url": null,
+      "status_code": null,
+      "affected_source_pages": null,
+      "manual_review": false
+    },
+    {
+      "id": "issue_3",
+      "metric": "metadata",
+      "severity": "medium",
+      "page_url": "https://northstar.example/blog",
+      "title": "Improve page title & description",
+      "observed": "Title: 43 characters; description: 27 characters.",
+      "expected": "Title: 30\u201360 characters. Description: 70\u2013160 characters.",
+      "suggested_action": "Write a specific 30\u201360 character title and a useful 70\u2013160 character description that match the page.",
+      "target_url": null,
+      "status_code": null,
+      "affected_source_pages": null,
+      "manual_review": false
+    },
+    {
+      "id": "issue_4",
+      "metric": "headings",
+      "severity": "medium",
+      "page_url": "https://northstar.example/blog",
+      "title": "Give the page one clear H1",
+      "observed": "0 H1 heading(s).",
+      "expected": "Exactly one nonempty H1 (project consistency rule).",
+      "suggested_action": "Use one descriptive, nonempty H1 and organize supporting sections with H2 and H3 headings.",
+      "target_url": null,
+      "status_code": null,
+      "affected_source_pages": null,
+      "manual_review": false
+    },
+    {
+      "id": "issue_5",
+      "metric": "metadata",
+      "severity": "medium",
+      "page_url": "https://northstar.example/integrations",
+      "title": "Improve page title & description",
+      "observed": "Title: 51 characters; description: 0 characters.",
+      "expected": "Title: 30\u201360 characters. Description: 70\u2013160 characters.",
+      "suggested_action": "Write a specific 30\u201360 character title and a useful 70\u2013160 character description that match the page.",
+      "target_url": null,
+      "status_code": null,
+      "affected_source_pages": null,
+      "manual_review": false
+    },
+    {
+      "id": "issue_8",
+      "metric": "headings",
+      "severity": "medium",
+      "page_url": "https://northstar.example/contact",
+      "title": "Give the page one clear H1",
+      "observed": "2 H1 heading(s).",
+      "expected": "Exactly one nonempty H1 (project consistency rule).",
+      "suggested_action": "Use one descriptive, nonempty H1 and organize supporting sections with H2 and H3 headings.",
+      "target_url": null,
+      "status_code": null,
+      "affected_source_pages": null,
+      "manual_review": false
+    },
+    {
+      "id": "issue_7",
+      "metric": "structured_data",
+      "severity": "low",
+      "page_url": "https://northstar.example/customers",
+      "title": "Review structured data opportunities",
+      "observed": "0 JSON-LD block(s); 0 qualifying type(s); 0 malformed.",
+      "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+      "suggested_action": "Where appropriate, add valid Schema.org JSON-LD that accurately describes the page. Validate syntax and use an applicable type.",
+      "target_url": null,
+      "status_code": null,
+      "affected_source_pages": null,
+      "manual_review": false
+    },
+    {
+      "id": "issue_9",
+      "metric": "structured_data",
+      "severity": "low",
+      "page_url": "https://northstar.example/contact",
+      "title": "Review structured data opportunities",
+      "observed": "0 JSON-LD block(s); 0 qualifying type(s); 0 malformed.",
+      "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+      "suggested_action": "Where appropriate, add valid Schema.org JSON-LD that accurately describes the page. Validate syntax and use an applicable type.",
+      "target_url": null,
+      "status_code": null,
+      "affected_source_pages": null,
+      "manual_review": false
+    },
+    {
+      "id": "issue_10",
+      "metric": "structured_data",
+      "severity": "low",
+      "page_url": "https://northstar.example/docs",
+      "title": "Review structured data opportunities",
+      "observed": "0 JSON-LD block(s); 0 qualifying type(s); 0 malformed.",
+      "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+      "suggested_action": "Where appropriate, add valid Schema.org JSON-LD that accurately describes the page. Validate syntax and use an applicable type.",
+      "target_url": null,
+      "status_code": null,
+      "affected_source_pages": null,
+      "manual_review": false
+    },
+    {
+      "id": "issue_11",
+      "metric": "structured_data",
+      "severity": "low",
+      "page_url": "https://northstar.example/security",
+      "title": "Review structured data opportunities",
+      "observed": "0 JSON-LD block(s); 0 qualifying type(s); 0 malformed.",
+      "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+      "suggested_action": "Where appropriate, add valid Schema.org JSON-LD that accurately describes the page. Validate syntax and use an applicable type.",
+      "target_url": null,
+      "status_code": null,
+      "affected_source_pages": null,
+      "manual_review": false
+    },
+    {
+      "id": "issue_12",
+      "metric": "structured_data",
+      "severity": "low",
+      "page_url": "https://northstar.example/changelog",
+      "title": "Review structured data opportunities",
+      "observed": "0 JSON-LD block(s); 0 qualifying type(s); 0 malformed.",
+      "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+      "suggested_action": "Where appropriate, add valid Schema.org JSON-LD that accurately describes the page. Validate syntax and use an applicable type.",
+      "target_url": null,
+      "status_code": null,
+      "affected_source_pages": null,
+      "manual_review": false
+    },
+    {
+      "id": "issue_14",
+      "metric": "structured_data",
+      "severity": "low",
+      "page_url": "https://northstar.example/careers",
+      "title": "Review structured data opportunities",
+      "observed": "0 JSON-LD block(s); 0 qualifying type(s); 0 malformed.",
+      "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+      "suggested_action": "Where appropriate, add valid Schema.org JSON-LD that accurately describes the page. Validate syntax and use an applicable type.",
+      "target_url": null,
+      "status_code": null,
+      "affected_source_pages": null,
+      "manual_review": false
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://northstar.example/",
+      "status_code": 200,
+      "checks": {
+        "metadata": {
+          "passed": true,
+          "observed": "Title: 43 characters; description: 111 characters.",
+          "expected": "Title: 30\u201360 characters. Description: 70\u2013160 characters.",
+          "details": {
+            "title": "Home \u2014 Northstar, a workspace for your team",
+            "description": "Explore home at Northstar. Bring your projects, people, and everyday work together in one thoughtful workspace.",
+            "title_length": 43,
+            "description_length": 111,
+            "title_pass": true,
+            "description_pass": true
+          }
+        },
+        "indexability": {
+          "passed": true,
+          "observed": "HTTP 200; no noindex detected.",
+          "expected": "HTTP 200 with no applicable noindex directive.",
+          "details": {
+            "directives": [
+              ""
+            ],
+            "noindex": false,
+            "headers_checked": true,
+            "partial": false
+          }
+        },
+        "headings": {
+          "passed": true,
+          "observed": "1 H1 heading(s).",
+          "expected": "Exactly one nonempty H1 (project consistency rule).",
+          "details": {
+            "h1": [
+              "Your work, a little clearer."
+            ],
+            "h2": [
+              "Made for your team"
+            ],
+            "h3": [],
+            "skipped_levels": false
+          }
+        },
+        "structured_data": {
+          "passed": true,
+          "observed": "1 JSON-LD block(s); 1 qualifying type(s); 0 malformed.",
+          "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+          "details": {
+            "types": [
+              "WebSite"
+            ],
+            "malformed": 0,
+            "blocks": 1
+          }
+        }
+      },
+      "links": [
+        "https://northstar.example/",
+        "https://northstar.example/docs/guide-0",
+        "https://northstar.example/docs/guide-12",
+        "https://northstar.example/docs/guide-24"
+      ],
+      "diagnostics": [],
+      "headers_available": true,
+      "social_profiles": [
+        {
+          "platform": "Instagram",
+          "url": "https://instagram.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/company/northstar-demo",
+          "source_pages": [
+            "https://northstar.example/"
+          ],
+          "evidence_types": [
+            "HTML link",
+            "JSON-LD sameAs"
+          ]
+        },
+        {
+          "platform": "X",
+          "url": "https://x.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/"
+          ],
+          "evidence_types": [
+            "HTML link",
+            "JSON-LD sameAs"
+          ]
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://youtube.com/@northstar_demo",
+          "source_pages": [
+            "https://northstar.example/"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://northstar.example/features",
+      "status_code": 200,
+      "checks": {
+        "metadata": {
+          "passed": false,
+          "observed": "Title: 47 characters; description: 0 characters.",
+          "expected": "Title: 30\u201360 characters. Description: 70\u2013160 characters.",
+          "details": {
+            "title": "Features \u2014 Northstar, a workspace for your team",
+            "description": "",
+            "title_length": 47,
+            "description_length": 0,
+            "title_pass": true,
+            "description_pass": false
+          }
+        },
+        "indexability": {
+          "passed": true,
+          "observed": "HTTP 200; no noindex detected.",
+          "expected": "HTTP 200 with no applicable noindex directive.",
+          "details": {
+            "directives": [
+              ""
+            ],
+            "noindex": false,
+            "headers_checked": true,
+            "partial": false
+          }
+        },
+        "headings": {
+          "passed": true,
+          "observed": "1 H1 heading(s).",
+          "expected": "Exactly one nonempty H1 (project consistency rule).",
+          "details": {
+            "h1": [
+              "Your work, a little clearer."
+            ],
+            "h2": [
+              "Made for your team"
+            ],
+            "h3": [],
+            "skipped_levels": false
+          }
+        },
+        "structured_data": {
+          "passed": true,
+          "observed": "1 JSON-LD block(s); 1 qualifying type(s); 0 malformed.",
+          "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+          "details": {
+            "types": [
+              "WebSite"
+            ],
+            "malformed": 0,
+            "blocks": 1
+          }
+        }
+      },
+      "links": [
+        "https://northstar.example/docs/guide-1",
+        "https://northstar.example/docs/guide-13",
+        "https://northstar.example/docs/guide-25",
+        "https://northstar.example/features"
+      ],
+      "diagnostics": [],
+      "headers_available": true,
+      "social_profiles": [
+        {
+          "platform": "Instagram",
+          "url": "https://instagram.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/features"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/company/northstar-demo",
+          "source_pages": [
+            "https://northstar.example/features"
+          ],
+          "evidence_types": [
+            "HTML link",
+            "JSON-LD sameAs"
+          ]
+        },
+        {
+          "platform": "X",
+          "url": "https://x.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/features"
+          ],
+          "evidence_types": [
+            "HTML link",
+            "JSON-LD sameAs"
+          ]
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://youtube.com/@northstar_demo",
+          "source_pages": [
+            "https://northstar.example/features"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://northstar.example/pricing",
+      "status_code": 200,
+      "checks": {
+        "metadata": {
+          "passed": false,
+          "observed": "Title: 46 characters; description: 27 characters.",
+          "expected": "Title: 30\u201360 characters. Description: 70\u2013160 characters.",
+          "details": {
+            "title": "Pricing \u2014 Northstar, a workspace for your team",
+            "description": "Make space for better work.",
+            "title_length": 46,
+            "description_length": 27,
+            "title_pass": true,
+            "description_pass": false
+          }
+        },
+        "indexability": {
+          "passed": true,
+          "observed": "HTTP 200; no noindex detected.",
+          "expected": "HTTP 200 with no applicable noindex directive.",
+          "details": {
+            "directives": [
+              ""
+            ],
+            "noindex": false,
+            "headers_checked": true,
+            "partial": false
+          }
+        },
+        "headings": {
+          "passed": true,
+          "observed": "1 H1 heading(s).",
+          "expected": "Exactly one nonempty H1 (project consistency rule).",
+          "details": {
+            "h1": [
+              "Your work, a little clearer."
+            ],
+            "h2": [
+              "Made for your team"
+            ],
+            "h3": [],
+            "skipped_levels": false
+          }
+        },
+        "structured_data": {
+          "passed": true,
+          "observed": "1 JSON-LD block(s); 1 qualifying type(s); 0 malformed.",
+          "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+          "details": {
+            "types": [
+              "WebSite"
+            ],
+            "malformed": 0,
+            "blocks": 1
+          }
+        }
+      },
+      "links": [
+        "https://northstar.example/docs/guide-14",
+        "https://northstar.example/docs/guide-2",
+        "https://northstar.example/docs/guide-26",
+        "https://northstar.example/pricing"
+      ],
+      "diagnostics": [],
+      "headers_available": true,
+      "social_profiles": [
+        {
+          "platform": "Instagram",
+          "url": "https://instagram.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/pricing"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/company/northstar-demo",
+          "source_pages": [
+            "https://northstar.example/pricing"
+          ],
+          "evidence_types": [
+            "HTML link",
+            "JSON-LD sameAs"
+          ]
+        },
+        {
+          "platform": "X",
+          "url": "https://x.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/pricing"
+          ],
+          "evidence_types": [
+            "HTML link",
+            "JSON-LD sameAs"
+          ]
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://youtube.com/@northstar_demo",
+          "source_pages": [
+            "https://northstar.example/pricing"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://northstar.example/about",
+      "status_code": 200,
+      "checks": {
+        "metadata": {
+          "passed": true,
+          "observed": "Title: 44 characters; description: 112 characters.",
+          "expected": "Title: 30\u201360 characters. Description: 70\u2013160 characters.",
+          "details": {
+            "title": "About \u2014 Northstar, a workspace for your team",
+            "description": "Explore about at Northstar. Bring your projects, people, and everyday work together in one thoughtful workspace.",
+            "title_length": 44,
+            "description_length": 112,
+            "title_pass": true,
+            "description_pass": true
+          }
+        },
+        "indexability": {
+          "passed": true,
+          "observed": "HTTP 200; no noindex detected.",
+          "expected": "HTTP 200 with no applicable noindex directive.",
+          "details": {
+            "directives": [
+              ""
+            ],
+            "noindex": false,
+            "headers_checked": true,
+            "partial": false
+          }
+        },
+        "headings": {
+          "passed": true,
+          "observed": "1 H1 heading(s).",
+          "expected": "Exactly one nonempty H1 (project consistency rule).",
+          "details": {
+            "h1": [
+              "Your work, a little clearer."
+            ],
+            "h2": [
+              "Made for your team"
+            ],
+            "h3": [],
+            "skipped_levels": false
+          }
+        },
+        "structured_data": {
+          "passed": true,
+          "observed": "1 JSON-LD block(s); 1 qualifying type(s); 0 malformed.",
+          "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+          "details": {
+            "types": [
+              "WebSite"
+            ],
+            "malformed": 0,
+            "blocks": 1
+          }
+        }
+      },
+      "links": [
+        "https://northstar.example/about",
+        "https://northstar.example/docs/guide-15",
+        "https://northstar.example/docs/guide-27",
+        "https://northstar.example/docs/guide-3"
+      ],
+      "diagnostics": [],
+      "headers_available": true,
+      "social_profiles": [
+        {
+          "platform": "Instagram",
+          "url": "https://instagram.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/about"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/company/northstar-demo",
+          "source_pages": [
+            "https://northstar.example/about"
+          ],
+          "evidence_types": [
+            "HTML link",
+            "JSON-LD sameAs"
+          ]
+        },
+        {
+          "platform": "X",
+          "url": "https://x.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/about"
+          ],
+          "evidence_types": [
+            "HTML link",
+            "JSON-LD sameAs"
+          ]
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://youtube.com/@northstar_demo",
+          "source_pages": [
+            "https://northstar.example/about"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://northstar.example/blog",
+      "status_code": 200,
+      "checks": {
+        "metadata": {
+          "passed": false,
+          "observed": "Title: 43 characters; description: 27 characters.",
+          "expected": "Title: 30\u201360 characters. Description: 70\u2013160 characters.",
+          "details": {
+            "title": "Blog \u2014 Northstar, a workspace for your team",
+            "description": "Make space for better work.",
+            "title_length": 43,
+            "description_length": 27,
+            "title_pass": true,
+            "description_pass": false
+          }
+        },
+        "indexability": {
+          "passed": true,
+          "observed": "HTTP 200; no noindex detected.",
+          "expected": "HTTP 200 with no applicable noindex directive.",
+          "details": {
+            "directives": [
+              ""
+            ],
+            "noindex": false,
+            "headers_checked": true,
+            "partial": false
+          }
+        },
+        "headings": {
+          "passed": false,
+          "observed": "0 H1 heading(s).",
+          "expected": "Exactly one nonempty H1 (project consistency rule).",
+          "details": {
+            "h1": [],
+            "h2": [
+              "Made for your team"
+            ],
+            "h3": [],
+            "skipped_levels": false
+          }
+        },
+        "structured_data": {
+          "passed": true,
+          "observed": "1 JSON-LD block(s); 1 qualifying type(s); 0 malformed.",
+          "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+          "details": {
+            "types": [
+              "WebSite"
+            ],
+            "malformed": 0,
+            "blocks": 1
+          }
+        }
+      },
+      "links": [
+        "https://northstar.example/blog",
+        "https://northstar.example/docs/guide-16",
+        "https://northstar.example/docs/guide-28",
+        "https://northstar.example/docs/guide-4"
+      ],
+      "diagnostics": [],
+      "headers_available": true,
+      "social_profiles": [
+        {
+          "platform": "Instagram",
+          "url": "https://instagram.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/blog"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/company/northstar-demo",
+          "source_pages": [
+            "https://northstar.example/blog"
+          ],
+          "evidence_types": [
+            "HTML link",
+            "JSON-LD sameAs"
+          ]
+        },
+        {
+          "platform": "X",
+          "url": "https://x.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/blog"
+          ],
+          "evidence_types": [
+            "HTML link",
+            "JSON-LD sameAs"
+          ]
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://youtube.com/@northstar_demo",
+          "source_pages": [
+            "https://northstar.example/blog"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://northstar.example/integrations",
+      "status_code": 200,
+      "checks": {
+        "metadata": {
+          "passed": false,
+          "observed": "Title: 51 characters; description: 0 characters.",
+          "expected": "Title: 30\u201360 characters. Description: 70\u2013160 characters.",
+          "details": {
+            "title": "Integrations \u2014 Northstar, a workspace for your team",
+            "description": "",
+            "title_length": 51,
+            "description_length": 0,
+            "title_pass": true,
+            "description_pass": false
+          }
+        },
+        "indexability": {
+          "passed": true,
+          "observed": "HTTP 200; no noindex detected.",
+          "expected": "HTTP 200 with no applicable noindex directive.",
+          "details": {
+            "directives": [
+              ""
+            ],
+            "noindex": false,
+            "headers_checked": true,
+            "partial": false
+          }
+        },
+        "headings": {
+          "passed": true,
+          "observed": "1 H1 heading(s).",
+          "expected": "Exactly one nonempty H1 (project consistency rule).",
+          "details": {
+            "h1": [
+              "Your work, a little clearer."
+            ],
+            "h2": [
+              "Made for your team"
+            ],
+            "h3": [],
+            "skipped_levels": false
+          }
+        },
+        "structured_data": {
+          "passed": true,
+          "observed": "1 JSON-LD block(s); 1 qualifying type(s); 0 malformed.",
+          "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+          "details": {
+            "types": [
+              "WebSite"
+            ],
+            "malformed": 0,
+            "blocks": 1
+          }
+        }
+      },
+      "links": [
+        "https://northstar.example/docs/guide-17",
+        "https://northstar.example/docs/guide-29",
+        "https://northstar.example/docs/guide-5",
+        "https://northstar.example/integrations"
+      ],
+      "diagnostics": [],
+      "headers_available": true,
+      "social_profiles": [
+        {
+          "platform": "Instagram",
+          "url": "https://instagram.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/integrations"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/company/northstar-demo",
+          "source_pages": [
+            "https://northstar.example/integrations"
+          ],
+          "evidence_types": [
+            "HTML link",
+            "JSON-LD sameAs"
+          ]
+        },
+        {
+          "platform": "X",
+          "url": "https://x.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/integrations"
+          ],
+          "evidence_types": [
+            "HTML link",
+            "JSON-LD sameAs"
+          ]
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://youtube.com/@northstar_demo",
+          "source_pages": [
+            "https://northstar.example/integrations"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://northstar.example/customers",
+      "status_code": 200,
+      "checks": {
+        "metadata": {
+          "passed": true,
+          "observed": "Title: 48 characters; description: 116 characters.",
+          "expected": "Title: 30\u201360 characters. Description: 70\u2013160 characters.",
+          "details": {
+            "title": "Customers \u2014 Northstar, a workspace for your team",
+            "description": "Explore customers at Northstar. Bring your projects, people, and everyday work together in one thoughtful workspace.",
+            "title_length": 48,
+            "description_length": 116,
+            "title_pass": true,
+            "description_pass": true
+          }
+        },
+        "indexability": {
+          "passed": false,
+          "observed": "HTTP 200; noindex detected.",
+          "expected": "HTTP 200 with no applicable noindex directive.",
+          "details": {
+            "directives": [
+              "noindex",
+              ""
+            ],
+            "noindex": true,
+            "headers_checked": true,
+            "partial": false
+          }
+        },
+        "headings": {
+          "passed": true,
+          "observed": "1 H1 heading(s).",
+          "expected": "Exactly one nonempty H1 (project consistency rule).",
+          "details": {
+            "h1": [
+              "Your work, a little clearer."
+            ],
+            "h2": [
+              "Made for your team"
+            ],
+            "h3": [],
+            "skipped_levels": false
+          }
+        },
+        "structured_data": {
+          "passed": false,
+          "observed": "0 JSON-LD block(s); 0 qualifying type(s); 0 malformed.",
+          "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+          "details": {
+            "types": [],
+            "malformed": 0,
+            "blocks": 0
+          }
+        }
+      },
+      "links": [
+        "https://northstar.example/customers",
+        "https://northstar.example/docs/guide-18",
+        "https://northstar.example/docs/guide-6"
+      ],
+      "diagnostics": [],
+      "headers_available": true,
+      "social_profiles": [
+        {
+          "platform": "Instagram",
+          "url": "https://instagram.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/customers"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/company/northstar-demo",
+          "source_pages": [
+            "https://northstar.example/customers"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "X",
+          "url": "https://x.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/customers"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://youtube.com/@northstar_demo",
+          "source_pages": [
+            "https://northstar.example/customers"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://northstar.example/contact",
+      "status_code": 200,
+      "checks": {
+        "metadata": {
+          "passed": true,
+          "observed": "Title: 46 characters; description: 114 characters.",
+          "expected": "Title: 30\u201360 characters. Description: 70\u2013160 characters.",
+          "details": {
+            "title": "Contact \u2014 Northstar, a workspace for your team",
+            "description": "Explore contact at Northstar. Bring your projects, people, and everyday work together in one thoughtful workspace.",
+            "title_length": 46,
+            "description_length": 114,
+            "title_pass": true,
+            "description_pass": true
+          }
+        },
+        "indexability": {
+          "passed": true,
+          "observed": "HTTP 200; no noindex detected.",
+          "expected": "HTTP 200 with no applicable noindex directive.",
+          "details": {
+            "directives": [
+              ""
+            ],
+            "noindex": false,
+            "headers_checked": true,
+            "partial": false
+          }
+        },
+        "headings": {
+          "passed": false,
+          "observed": "2 H1 heading(s).",
+          "expected": "Exactly one nonempty H1 (project consistency rule).",
+          "details": {
+            "h1": [
+              "Get in touch",
+              "Say hello"
+            ],
+            "h2": [
+              "Made for your team"
+            ],
+            "h3": [],
+            "skipped_levels": false
+          }
+        },
+        "structured_data": {
+          "passed": false,
+          "observed": "0 JSON-LD block(s); 0 qualifying type(s); 0 malformed.",
+          "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+          "details": {
+            "types": [],
+            "malformed": 0,
+            "blocks": 0
+          }
+        }
+      },
+      "links": [
+        "https://northstar.example/contact",
+        "https://northstar.example/docs/guide-19",
+        "https://northstar.example/docs/guide-7"
+      ],
+      "diagnostics": [],
+      "headers_available": true,
+      "social_profiles": [
+        {
+          "platform": "Instagram",
+          "url": "https://instagram.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/contact"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/company/northstar-demo",
+          "source_pages": [
+            "https://northstar.example/contact"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "X",
+          "url": "https://x.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/contact"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://youtube.com/@northstar_demo",
+          "source_pages": [
+            "https://northstar.example/contact"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://northstar.example/docs",
+      "status_code": 200,
+      "checks": {
+        "metadata": {
+          "passed": true,
+          "observed": "Title: 43 characters; description: 111 characters.",
+          "expected": "Title: 30\u201360 characters. Description: 70\u2013160 characters.",
+          "details": {
+            "title": "Docs \u2014 Northstar, a workspace for your team",
+            "description": "Explore docs at Northstar. Bring your projects, people, and everyday work together in one thoughtful workspace.",
+            "title_length": 43,
+            "description_length": 111,
+            "title_pass": true,
+            "description_pass": true
+          }
+        },
+        "indexability": {
+          "passed": true,
+          "observed": "HTTP 200; no noindex detected.",
+          "expected": "HTTP 200 with no applicable noindex directive.",
+          "details": {
+            "directives": [
+              ""
+            ],
+            "noindex": false,
+            "headers_checked": true,
+            "partial": false
+          }
+        },
+        "headings": {
+          "passed": true,
+          "observed": "1 H1 heading(s).",
+          "expected": "Exactly one nonempty H1 (project consistency rule).",
+          "details": {
+            "h1": [
+              "Your work, a little clearer."
+            ],
+            "h2": [
+              "Made for your team"
+            ],
+            "h3": [],
+            "skipped_levels": false
+          }
+        },
+        "structured_data": {
+          "passed": false,
+          "observed": "0 JSON-LD block(s); 0 qualifying type(s); 0 malformed.",
+          "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+          "details": {
+            "types": [],
+            "malformed": 0,
+            "blocks": 0
+          }
+        }
+      },
+      "links": [
+        "https://northstar.example/docs",
+        "https://northstar.example/docs/guide-20",
+        "https://northstar.example/docs/guide-8"
+      ],
+      "diagnostics": [],
+      "headers_available": true,
+      "social_profiles": [
+        {
+          "platform": "Instagram",
+          "url": "https://instagram.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/docs"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/company/northstar-demo",
+          "source_pages": [
+            "https://northstar.example/docs"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "X",
+          "url": "https://x.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/docs"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://youtube.com/@northstar_demo",
+          "source_pages": [
+            "https://northstar.example/docs"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://northstar.example/security",
+      "status_code": 200,
+      "checks": {
+        "metadata": {
+          "passed": true,
+          "observed": "Title: 47 characters; description: 115 characters.",
+          "expected": "Title: 30\u201360 characters. Description: 70\u2013160 characters.",
+          "details": {
+            "title": "Security \u2014 Northstar, a workspace for your team",
+            "description": "Explore security at Northstar. Bring your projects, people, and everyday work together in one thoughtful workspace.",
+            "title_length": 47,
+            "description_length": 115,
+            "title_pass": true,
+            "description_pass": true
+          }
+        },
+        "indexability": {
+          "passed": true,
+          "observed": "HTTP 200; no noindex detected.",
+          "expected": "HTTP 200 with no applicable noindex directive.",
+          "details": {
+            "directives": [
+              ""
+            ],
+            "noindex": false,
+            "headers_checked": true,
+            "partial": false
+          }
+        },
+        "headings": {
+          "passed": true,
+          "observed": "1 H1 heading(s).",
+          "expected": "Exactly one nonempty H1 (project consistency rule).",
+          "details": {
+            "h1": [
+              "Your work, a little clearer."
+            ],
+            "h2": [
+              "Made for your team"
+            ],
+            "h3": [],
+            "skipped_levels": false
+          }
+        },
+        "structured_data": {
+          "passed": false,
+          "observed": "0 JSON-LD block(s); 0 qualifying type(s); 0 malformed.",
+          "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+          "details": {
+            "types": [],
+            "malformed": 0,
+            "blocks": 0
+          }
+        }
+      },
+      "links": [
+        "https://northstar.example/docs/guide-21",
+        "https://northstar.example/docs/guide-9",
+        "https://northstar.example/security"
+      ],
+      "diagnostics": [],
+      "headers_available": true,
+      "social_profiles": [
+        {
+          "platform": "Instagram",
+          "url": "https://instagram.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/security"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/company/northstar-demo",
+          "source_pages": [
+            "https://northstar.example/security"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "X",
+          "url": "https://x.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/security"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://youtube.com/@northstar_demo",
+          "source_pages": [
+            "https://northstar.example/security"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://northstar.example/changelog",
+      "status_code": 200,
+      "checks": {
+        "metadata": {
+          "passed": true,
+          "observed": "Title: 48 characters; description: 116 characters.",
+          "expected": "Title: 30\u201360 characters. Description: 70\u2013160 characters.",
+          "details": {
+            "title": "Changelog \u2014 Northstar, a workspace for your team",
+            "description": "Explore changelog at Northstar. Bring your projects, people, and everyday work together in one thoughtful workspace.",
+            "title_length": 48,
+            "description_length": 116,
+            "title_pass": true,
+            "description_pass": true
+          }
+        },
+        "indexability": {
+          "passed": true,
+          "observed": "HTTP 200; no noindex detected.",
+          "expected": "HTTP 200 with no applicable noindex directive.",
+          "details": {
+            "directives": [
+              ""
+            ],
+            "noindex": false,
+            "headers_checked": false,
+            "partial": true
+          }
+        },
+        "headings": {
+          "passed": true,
+          "observed": "1 H1 heading(s).",
+          "expected": "Exactly one nonempty H1 (project consistency rule).",
+          "details": {
+            "h1": [
+              "Your work, a little clearer."
+            ],
+            "h2": [
+              "Made for your team"
+            ],
+            "h3": [],
+            "skipped_levels": false
+          }
+        },
+        "structured_data": {
+          "passed": false,
+          "observed": "0 JSON-LD block(s); 0 qualifying type(s); 0 malformed.",
+          "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+          "details": {
+            "types": [],
+            "malformed": 0,
+            "blocks": 0
+          }
+        }
+      },
+      "links": [
+        "https://northstar.example/changelog",
+        "https://northstar.example/docs/guide-10",
+        "https://northstar.example/docs/guide-22"
+      ],
+      "diagnostics": [
+        "X-Robots-Tag headers unavailable; indexability is partially checked."
+      ],
+      "headers_available": false,
+      "social_profiles": [
+        {
+          "platform": "Instagram",
+          "url": "https://instagram.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/changelog"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/company/northstar-demo",
+          "source_pages": [
+            "https://northstar.example/changelog"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "X",
+          "url": "https://x.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/changelog"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://youtube.com/@northstar_demo",
+          "source_pages": [
+            "https://northstar.example/changelog"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://northstar.example/careers",
+      "status_code": 200,
+      "checks": {
+        "metadata": {
+          "passed": true,
+          "observed": "Title: 46 characters; description: 114 characters.",
+          "expected": "Title: 30\u201360 characters. Description: 70\u2013160 characters.",
+          "details": {
+            "title": "Careers \u2014 Northstar, a workspace for your team",
+            "description": "Explore careers at Northstar. Bring your projects, people, and everyday work together in one thoughtful workspace.",
+            "title_length": 46,
+            "description_length": 114,
+            "title_pass": true,
+            "description_pass": true
+          }
+        },
+        "indexability": {
+          "passed": false,
+          "observed": "HTTP 200; noindex detected.",
+          "expected": "HTTP 200 with no applicable noindex directive.",
+          "details": {
+            "directives": [
+              "noindex",
+              ""
+            ],
+            "noindex": true,
+            "headers_checked": true,
+            "partial": false
+          }
+        },
+        "headings": {
+          "passed": true,
+          "observed": "1 H1 heading(s).",
+          "expected": "Exactly one nonempty H1 (project consistency rule).",
+          "details": {
+            "h1": [
+              "Your work, a little clearer."
+            ],
+            "h2": [
+              "Made for your team"
+            ],
+            "h3": [],
+            "skipped_levels": false
+          }
+        },
+        "structured_data": {
+          "passed": false,
+          "observed": "0 JSON-LD block(s); 0 qualifying type(s); 0 malformed.",
+          "expected": "At least one JSON-LD object with a Schema.org context and nonempty type.",
+          "details": {
+            "types": [],
+            "malformed": 0,
+            "blocks": 0
+          }
+        }
+      },
+      "links": [
+        "https://northstar.example/careers",
+        "https://northstar.example/docs/guide-11",
+        "https://northstar.example/docs/guide-23"
+      ],
+      "diagnostics": [],
+      "headers_available": true,
+      "social_profiles": [
+        {
+          "platform": "Instagram",
+          "url": "https://instagram.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/careers"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/company/northstar-demo",
+          "source_pages": [
+            "https://northstar.example/careers"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "X",
+          "url": "https://x.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/careers"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://youtube.com/@northstar_demo",
+          "source_pages": [
+            "https://northstar.example/careers"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "url": "https://northstar.example/",
+      "source_pages": [
+        "https://northstar.example/"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-0",
+      "source_pages": [
+        "https://northstar.example/"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-0",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-12",
+      "source_pages": [
+        "https://northstar.example/"
+      ],
+      "status": "broken",
+      "status_code": 404,
+      "final_url": "https://northstar.example/docs/guide-12",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-24",
+      "source_pages": [
+        "https://northstar.example/"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-24",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-1",
+      "source_pages": [
+        "https://northstar.example/features"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-1",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-13",
+      "source_pages": [
+        "https://northstar.example/features"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-13",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-25",
+      "source_pages": [
+        "https://northstar.example/features"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-25",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/features",
+      "source_pages": [
+        "https://northstar.example/features"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/features",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-14",
+      "source_pages": [
+        "https://northstar.example/pricing"
+      ],
+      "status": "broken",
+      "status_code": 404,
+      "final_url": "https://northstar.example/docs/guide-14",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-2",
+      "source_pages": [
+        "https://northstar.example/pricing"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-2",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-26",
+      "source_pages": [
+        "https://northstar.example/pricing"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-26",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/pricing",
+      "source_pages": [
+        "https://northstar.example/pricing"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/pricing",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/about",
+      "source_pages": [
+        "https://northstar.example/about"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/about",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-15",
+      "source_pages": [
+        "https://northstar.example/about"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-15",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-27",
+      "source_pages": [
+        "https://northstar.example/about"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-27",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-3",
+      "source_pages": [
+        "https://northstar.example/about"
+      ],
+      "status": "broken",
+      "status_code": 404,
+      "final_url": "https://northstar.example/docs/guide-3",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/blog",
+      "source_pages": [
+        "https://northstar.example/blog"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/blog",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-16",
+      "source_pages": [
+        "https://northstar.example/blog"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-16",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-28",
+      "source_pages": [
+        "https://northstar.example/blog"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-28",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-4",
+      "source_pages": [
+        "https://northstar.example/blog"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-4",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-17",
+      "source_pages": [
+        "https://northstar.example/integrations"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-17",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-29",
+      "source_pages": [
+        "https://northstar.example/integrations"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-29",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-5",
+      "source_pages": [
+        "https://northstar.example/integrations"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-5",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/integrations",
+      "source_pages": [
+        "https://northstar.example/integrations"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/integrations",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/customers",
+      "source_pages": [
+        "https://northstar.example/customers"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/customers",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-18",
+      "source_pages": [
+        "https://northstar.example/customers"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-18",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-6",
+      "source_pages": [
+        "https://northstar.example/customers"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-6",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/contact",
+      "source_pages": [
+        "https://northstar.example/contact"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/contact",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-19",
+      "source_pages": [
+        "https://northstar.example/contact"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-19",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-7",
+      "source_pages": [
+        "https://northstar.example/contact"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-7",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs",
+      "source_pages": [
+        "https://northstar.example/docs"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-20",
+      "source_pages": [
+        "https://northstar.example/docs"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-20",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-8",
+      "source_pages": [
+        "https://northstar.example/docs"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-8",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-21",
+      "source_pages": [
+        "https://northstar.example/security"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-21",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-9",
+      "source_pages": [
+        "https://northstar.example/security"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-9",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/security",
+      "source_pages": [
+        "https://northstar.example/security"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/security",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/changelog",
+      "source_pages": [
+        "https://northstar.example/changelog"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/changelog",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-10",
+      "source_pages": [
+        "https://northstar.example/changelog"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-10",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-22",
+      "source_pages": [
+        "https://northstar.example/changelog"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/docs/guide-22",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/careers",
+      "source_pages": [
+        "https://northstar.example/careers"
+      ],
+      "status": "ok",
+      "status_code": 200,
+      "final_url": "https://northstar.example/careers",
+      "reason": null,
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-11",
+      "source_pages": [
+        "https://northstar.example/careers"
+      ],
+      "status": "unknown",
+      "status_code": null,
+      "final_url": null,
+      "reason": "Simulated request timeout (sample fixture).",
+      "manual_review": false
+    },
+    {
+      "url": "https://northstar.example/docs/guide-23",
+      "source_pages": [
+        "https://northstar.example/careers"
+      ],
+      "status": "unknown",
+      "status_code": null,
+      "final_url": null,
+      "reason": "Simulated request timeout (sample fixture).",
+      "manual_review": false
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "high",
+      "issue_ids": [
+        "issue_6",
+        "issue_13"
+      ],
+      "action": "Review page indexability",
+      "reason": "2 page(s) have measured findings in this check. Review the linked evidence before making changes.",
+      "suggested_fix": "Confirm whether this page should appear in search. For a public landing page, resolve non-200 responses and remove unintended noindex directives.",
+      "metadata": null
+    },
+    {
+      "priority": "high",
+      "issue_ids": [
+        "issue_15",
+        "issue_16",
+        "issue_17"
+      ],
+      "action": "Repair broken internal links",
+      "reason": "3 page(s) have measured findings in this check. Review the linked evidence before making changes.",
+      "suggested_fix": "Update the source link to a working destination or restore the missing page. Check restricted responses manually before changing links.",
+      "metadata": null
+    },
+    {
+      "priority": "medium",
+      "issue_ids": [
+        "issue_1",
+        "issue_2",
+        "issue_3",
+        "issue_5"
+      ],
+      "action": "Improve page title & description",
+      "reason": "4 page(s) have measured findings in this check. Review the linked evidence before making changes.",
+      "suggested_fix": "Write a specific 30\u201360 character title and a useful 70\u2013160 character description that match the page.",
+      "metadata": null
+    },
+    {
+      "priority": "medium",
+      "issue_ids": [
+        "issue_4",
+        "issue_8"
+      ],
+      "action": "Give the page one clear H1",
+      "reason": "2 page(s) have measured findings in this check. Review the linked evidence before making changes.",
+      "suggested_fix": "Use one descriptive, nonempty H1 and organize supporting sections with H2 and H3 headings.",
+      "metadata": null
+    },
+    {
+      "priority": "low",
+      "issue_ids": [
+        "issue_7",
+        "issue_9",
+        "issue_10",
+        "issue_11",
+        "issue_12",
+        "issue_14"
+      ],
+      "action": "Review structured data opportunities",
+      "reason": "6 page(s) have measured findings in this check. Review the linked evidence before making changes.",
+      "suggested_fix": "Where appropriate, add valid Schema.org JSON-LD that accurately describes the page. Validate syntax and use an applicable type.",
+      "metadata": null
+    }
+  ],
+  "recommendation_source": "rules",
+  "recommendation_note": "Sample action plan generated by the SEO rules from local HTML fixtures. No live website was crawled.",
+  "coverage": {
+    "page_limit": 20,
+    "pages_analyzed": 12,
+    "pages_failed": 0,
+    "links_discovered": 42,
+    "links_verified": 40,
+    "links_unknown": 2,
+    "headers_checked": 11,
+    "crawl_complete": true,
+    "failures": [],
+    "warnings": [
+      "Response headers were unavailable for some pages. X-Robots-Tag indexability checks are partial.",
+      "2 internal destination(s) could not be verified and are excluded from the link score."
+    ]
+  },
+  "site_checks": {
+    "robots_txt": {
+      "url": "https://northstar.example/robots.txt",
+      "status": "passed",
+      "status_code": 200,
+      "summary": "robots.txt is accessible. No checked URLs are blocked for Googlebot.",
+      "content": "# Northstar sample crawl policy\nUser-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /account/\n\nSitemap: https://northstar.example/sitemap.xml\n",
+      "content_truncated": false,
+      "rules": [
+        {
+          "directive": "allow",
+          "value": "/",
+          "agents": [
+            "*"
+          ],
+          "line": 3
+        },
+        {
+          "directive": "disallow",
+          "value": "/admin/",
+          "agents": [
+            "*"
+          ],
+          "line": 4
+        },
+        {
+          "directive": "disallow",
+          "value": "/account/",
+          "agents": [
+            "*"
+          ],
+          "line": 5
+        }
+      ],
+      "sitemap_urls": [
+        "https://northstar.example/sitemap.xml"
+      ],
+      "permissions": [
+        {
+          "page_url": "https://northstar.example/",
+          "agent": "Googlebot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/",
+          "agent": "Bingbot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/",
+          "agent": "CrawlensBot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/features",
+          "agent": "Googlebot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/features",
+          "agent": "Bingbot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/features",
+          "agent": "CrawlensBot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/pricing",
+          "agent": "Googlebot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/pricing",
+          "agent": "Bingbot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/pricing",
+          "agent": "CrawlensBot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/about",
+          "agent": "Googlebot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/about",
+          "agent": "Bingbot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/about",
+          "agent": "CrawlensBot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/blog",
+          "agent": "Googlebot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/blog",
+          "agent": "Bingbot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/blog",
+          "agent": "CrawlensBot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/integrations",
+          "agent": "Googlebot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/integrations",
+          "agent": "Bingbot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/integrations",
+          "agent": "CrawlensBot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/customers",
+          "agent": "Googlebot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/customers",
+          "agent": "Bingbot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/customers",
+          "agent": "CrawlensBot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/contact",
+          "agent": "Googlebot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/contact",
+          "agent": "Bingbot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/contact",
+          "agent": "CrawlensBot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/docs",
+          "agent": "Googlebot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/docs",
+          "agent": "Bingbot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/docs",
+          "agent": "CrawlensBot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/security",
+          "agent": "Googlebot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/security",
+          "agent": "Bingbot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/security",
+          "agent": "CrawlensBot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/changelog",
+          "agent": "Googlebot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/changelog",
+          "agent": "Bingbot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/changelog",
+          "agent": "CrawlensBot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/careers",
+          "agent": "Googlebot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/careers",
+          "agent": "Bingbot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        },
+        {
+          "page_url": "https://northstar.example/careers",
+          "agent": "CrawlensBot",
+          "allowed": true,
+          "matched_rule": "Allow: /"
+        }
+      ],
+      "warnings": []
+    },
+    "sitemap": {
+      "status": "passed",
+      "summary": "12 unique page URLs discovered across 1 sitemap file.",
+      "files": [
+        {
+          "url": "https://northstar.example/sitemap.xml",
+          "status": "passed",
+          "status_code": 200,
+          "kind": "urlset",
+          "entries": 12,
+          "message": "Valid URL sitemap with 12 entries (sample XML fixture)."
+        }
+      ],
+      "urls_discovered": 12,
+      "url_sample": [
+        "https://northstar.example/",
+        "https://northstar.example/features",
+        "https://northstar.example/pricing",
+        "https://northstar.example/about",
+        "https://northstar.example/blog",
+        "https://northstar.example/integrations",
+        "https://northstar.example/customers",
+        "https://northstar.example/contact",
+        "https://northstar.example/docs",
+        "https://northstar.example/security",
+        "https://northstar.example/changelog",
+        "https://northstar.example/careers"
+      ],
+      "scanned_pages_listed": 12,
+      "scanned_pages_missing": [],
+      "complete": true,
+      "file_limit": 5,
+      "warnings": []
+    },
+    "social": {
+      "status": "found",
+      "profiles": [
+        {
+          "platform": "Instagram",
+          "url": "https://instagram.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/",
+            "https://northstar.example/about",
+            "https://northstar.example/blog",
+            "https://northstar.example/careers",
+            "https://northstar.example/changelog",
+            "https://northstar.example/contact",
+            "https://northstar.example/customers",
+            "https://northstar.example/docs",
+            "https://northstar.example/features",
+            "https://northstar.example/integrations",
+            "https://northstar.example/pricing",
+            "https://northstar.example/security"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        },
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/company/northstar-demo",
+          "source_pages": [
+            "https://northstar.example/",
+            "https://northstar.example/about",
+            "https://northstar.example/blog",
+            "https://northstar.example/careers",
+            "https://northstar.example/changelog",
+            "https://northstar.example/contact",
+            "https://northstar.example/customers",
+            "https://northstar.example/docs",
+            "https://northstar.example/features",
+            "https://northstar.example/integrations",
+            "https://northstar.example/pricing",
+            "https://northstar.example/security"
+          ],
+          "evidence_types": [
+            "HTML link",
+            "JSON-LD sameAs"
+          ]
+        },
+        {
+          "platform": "X",
+          "url": "https://x.com/northstar_demo",
+          "source_pages": [
+            "https://northstar.example/",
+            "https://northstar.example/about",
+            "https://northstar.example/blog",
+            "https://northstar.example/careers",
+            "https://northstar.example/changelog",
+            "https://northstar.example/contact",
+            "https://northstar.example/customers",
+            "https://northstar.example/docs",
+            "https://northstar.example/features",
+            "https://northstar.example/integrations",
+            "https://northstar.example/pricing",
+            "https://northstar.example/security"
+          ],
+          "evidence_types": [
+            "HTML link",
+            "JSON-LD sameAs"
+          ]
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://youtube.com/@northstar_demo",
+          "source_pages": [
+            "https://northstar.example/",
+            "https://northstar.example/about",
+            "https://northstar.example/blog",
+            "https://northstar.example/careers",
+            "https://northstar.example/changelog",
+            "https://northstar.example/contact",
+            "https://northstar.example/customers",
+            "https://northstar.example/docs",
+            "https://northstar.example/features",
+            "https://northstar.example/integrations",
+            "https://northstar.example/pricing",
+            "https://northstar.example/security"
+          ],
+          "evidence_types": [
+            "HTML link"
+          ]
+        }
+      ],
+      "pages_checked": 12,
+      "pages_with_profiles": 12,
+      "summary": "Profiles referenced by scanned pages. Account ownership and destination availability are not verified."
+    }
+  },
+  "rule_version": "1.1"
+}
