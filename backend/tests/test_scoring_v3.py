@@ -190,8 +190,8 @@ def test_ai_rejects_an_unmeasured_score_or_url_in_narrative():
     issues=sample_report().issues
     action=fallback_recommendations(issues)[0].model_dump()
     for text in ('Your SEO score is 99.', 'Visit https://invented.example.'):
-        with pytest.raises(ValueError,match='Unverified'):
-            validate_recommendations({'executive_summary':text,'recommendations':[action]},issues)
+        actions, summary, problems = validate_recommendations({'executive_summary':text,'recommendations':[action]},issues)
+        assert summary == '' and any('Unverified' in p for p in problems) and actions  # Summary dropped, action kept.
 
 
 async def test_redirect_aliases_share_one_analysis_and_preserve_source(good_page):
@@ -272,3 +272,27 @@ async def test_pagespeed_key_is_sent_and_quota_errors_explain_the_score_impact(m
     assert seen == ['test-key', None]
     report = make_report(BASE + '/', CrawlResult(), [page], [], Settings(_env_file=None))
     assert any('leaves out the 13% speed weight' in w for w in report.coverage.warnings)
+
+
+def test_template_problem_on_many_pages_is_reported_once_with_every_page(good_page):
+    # Like renovuscapital.com: the theme puts a LinkedIn icon without alt in a labelled link, and the logo text in two H1s.
+    template = ('<header><h1>Brand</h1></header><a href="https://linkedin.com/company/x">Connect with Us <img src="/licon.png"></a>'
+                '<footer><h1>Brand</h1></footer>')
+    pages = [analyze_page(good_page.model_copy(update={'url': f'{BASE}/p{i}', 'html': f'<h1>Page {i}</h1>{template}'}), 'example.com') for i in range(3)]
+    team = analyze_page(good_page.model_copy(update={'url': f'{BASE}/team', 'html': f'<h1>Team</h1><img src="/jane.jpg">{template}'}), 'example.com')
+    issues = build_issues(pages + [team], [])
+    media = [i for i in issues if i.metric == 'media']
+    headings = [i for i in issues if i.metric == 'headings']
+    grouped = next(i for i in media if i.evidence.get('template'))
+    assert grouped.affected_source_pages == 3 and grouped.evidence['source_pages'] == [p.url for p in pages]
+    assert '(same on 3 pages)' in grouped.title and 'shared template' in grouped.suggested_action
+    assert grouped.outcome == 'Review' and grouped.severity == 'low'           # an icon in a labelled link is not a failure
+    assert [i.outcome for i in media if not i.evidence.get('template')] == ['Failed']  # the headshot without alt still fails
+    assert len(headings) == 1 and headings[0].affected_source_pages == 4 and 'repeated H1 text: brand' in headings[0].observed
+
+
+def test_icon_inside_a_labelled_link_is_reviewed_not_failed(good_page):
+    good_page.html += '<a href="/contact">Contact us <img src="/arrow.png"></a><a href="/x"><img src="/logo.png"></a>'
+    page = analyze_page(good_page, 'example.com')
+    rows = [r for r in calculate_scores([page], [])[0]['media'].evidence if r['rule'] == 'Image alternative']
+    assert [r['status'] for r in rows] == ['Review', 'Failed']   # a link with only an image still needs real alt text

@@ -1,3 +1,4 @@
+from collections import Counter, defaultdict
 from backend.app.schemas import Issue
 
 RULES = {
@@ -33,15 +34,60 @@ PRIORITY = {'critical':0, 'high':1, 'medium':2, 'low':3}
 
 def media_fix(resources):
     steps = []
-    if any(r['kind']=='img' and r.get('alt') is None and not r.get('tracking_pixel_candidate') and not r.get('decorative') for r in resources):
+    if any(r['kind']=='img' and r.get('alt') is None and not r.get('link_text') and not r.get('tracking_pixel_candidate') and not r.get('decorative') for r in resources):
         steps.append('Write descriptive alt text for the identified informative images.')
-    if any(r['kind']=='img' and r['reviews'] for r in resources):
+    if any(r['kind']=='img' and r.get('link_text') and r.get('alt') is None for r in resources):
+        steps.append('For images inside links that already have text, add alt="" if the image only repeats the link, '
+                     'or a short description (for a team photo, the name of the person) if it adds something.')
+    if any(r['kind']=='img' and any('Generic' in m for m in r['reviews']) for r in resources):
         steps.append('Replace generic alternative text such as "image" with a short description of what the image shows.')
     if any(r['kind']=='video' and r['reviews'] for r in resources):
         steps.append('Check accessible labels and caption needs for the identified videos.')
     if any(r.get('resource_status')=='broken' for r in resources):
         steps.append('Repair the listed broken media URLs.')
     return ' '.join(steps) or 'Review the purpose and alternative text of the flagged media.'
+
+
+def template_signature(issue):
+    """What a problem looks like independent of the page, so the same template mistake can be recognised on many pages."""
+    d = issue.evidence
+    if issue.metric == 'media':
+        problems = frozenset((r.get('url') or r.get('source') or '', m) for r in d.get('resources', []) for m in r['failures'] + r['reviews'])
+        return problems or None
+    if issue.metric == 'headings' and issue.outcome == 'Warning':
+        rows = d.get('headings', [])
+        repeated = frozenset(t for t, n in Counter(r['text'].casefold() for r in rows if r['level'] == 'H1' and r['text']).items() if n > 1)
+        return (len(d.get('h1', [])), repeated, frozenset(f for r in rows for f in r['flags']))
+    return None
+
+
+def group_template_issues(issues):
+    """Report a problem that repeats on several pages once, with every affected page. The same missing alt text or the
+    same extra H1 on ten pages almost always comes from one shared template, and it is fixed once, not ten times."""
+    groups = defaultdict(list)
+    for issue in issues:
+        signature = template_signature(issue)
+        groups[(issue.metric, issue.outcome, issue.severity, signature) if signature else issue.id].append(issue)
+    result = []
+    for key, members in groups.items():
+        first = members[0]
+        if len(members) == 1:
+            result.append(first)
+            continue
+        pages = [issue.page_url for issue in members]
+        signature = key[3]
+        if first.metric == 'media':
+            detail = '; '.join(f'{url}: {message}' for url, message in sorted(signature))[:700]
+        else:
+            count, repeated, flags = signature
+            detail = f"{count} H1 headings" + (f"; repeated H1 text: {', '.join(sorted(repeated))}" if repeated else '') +                      (f"; {', '.join(sorted(flags)).lower()}" if flags else '')
+        result.append(first.model_copy(update={
+            'title': f'{first.title} (same on {len(pages)} pages)', 'affected_source_pages': len(pages),
+            'observed': f'The same problem appears on {len(pages)} pages, so it most likely comes from a shared template '
+                        f'(header, footer or theme). {detail}',
+            'suggested_action': first.suggested_action + ' Fix it once in the shared template, and it is fixed on every page.',
+            'evidence': {**first.evidence, 'source_pages': pages, 'template': True}}))
+    return result
 
 
 def build_issues(pages, links):
@@ -57,10 +103,12 @@ def build_issues(pages, links):
             if metric=='indexability' and outcome=='Failed': severity = 'critical'
             if outcome=='Warning': severity = 'low'
             if metric=='media': action = media_fix(d.get('resources',[]))
+            if metric=='media' and outcome=='Review': severity = 'low'  # Verification or small markup tasks, not failures.
             if metric=='headings': title = 'Review heading structure' if outcome=='Warning' else 'Missing descriptive main heading'
             issues.append(Issue(id=f'issue_{len(issues)+1}', metric=metric,severity=severity,page_url=page.url,
                                 outcome=outcome, title=title,observed=check.observed,expected=check.expected,
                                 evidence=d,impact=IMPACT[metric],suggested_action=action))
+    issues = group_template_issues(issues)
     for link in links:
         if link.status!='broken': continue
         issues.append(Issue(id=f'issue_{len(issues)+1}',metric='broken_links',severity='high',page_url=next(iter(link.source_pages),link.url),

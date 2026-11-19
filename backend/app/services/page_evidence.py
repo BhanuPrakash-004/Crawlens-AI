@@ -100,7 +100,14 @@ def media_check(soup, base):
                        explicit_dimensions=bool(tag.get('width') and tag.get('height')), lazy_loaded=tag.get('loading')=='lazy',
                        responsive=bool(tag.get('srcset') or tag.find_parent('picture')),
                        picture=bool(tag.find_parent('picture')), format=urlsplit(row['url'] or '').path.split('.')[-1])
-            if not decorative and not one_pixel and alt is None: row['failures'].append('Missing alt attribute.')
+            # An image inside a link or button that already has text ("Connect with Us", a person's name) is named by
+            # that text for screen readers. It needs alt="" or a short extra description: a small fix, not a failure.
+            holder = tag.find_parent(['a', 'button'])
+            row['link_text'] = holder.get_text(' ', strip=True)[:120] if holder else ''
+            if not decorative and not one_pixel and alt is None and row['link_text']:
+                row['reviews'].append(f'Image inside a link that already says "{row["link_text"][:40]}". Add alt="" if it only repeats '
+                                      'the link, or a short description if it shows something more (this also helps image search).')
+            elif not decorative and not one_pixel and alt is None: row['failures'].append('Missing alt attribute.')
             elif not decorative and not one_pixel and alt.strip().lower() in GENERIC_ALT:
                 row['reviews'].append('Generic alternative text; describe what the image shows.')
         resources.append(row)

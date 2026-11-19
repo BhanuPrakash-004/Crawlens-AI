@@ -59,7 +59,8 @@ async def run_audit(job: AuditJob, config: Settings):
 
     async def work():
         network = VerifiedNetwork()
-        crawl = await crawl_website(job.website, config)
+        crawl = await crawl_website(job.website, config, network)
+        website = crawl.start_url or job.website  # The real address when the entered URL redirects to another site.
         job.stage = 'verifying_pages'
         available = max(1, config.audit_timeout_seconds - (time.monotonic()-started) - config.ai_timeout_seconds - 3)
         async def isolated(label, task, default=None):
@@ -72,7 +73,7 @@ async def run_audit(job: AuditJob, config: Settings):
         pages = []
         for page in deduplicate_pages(crawl.pages):
             try:
-                pages.append(analyze_page(page, urlsplit(job.website).hostname, config))
+                pages.append(analyze_page(page, urlsplit(website).hostname, config))
             except (ValueError,TypeError,RecursionError,AttributeError):
                 crawl.failures.append(FetchFailure(url=page.url,reason='Could not parse this HTML snapshot.'))
         if not pages: raise CrawlError('No usable page evidence could be analyzed.')
@@ -84,16 +85,19 @@ async def run_audit(job: AuditJob, config: Settings):
         budget *= .72
         links, site_checks, https, llms, _, _ = await asyncio.gather(
             isolated('Link verification', check_links(pages,config,budget,request=network.request)),
-            isolated('Site inspection',audit_site(job.website,pages,config,budget,request=network.request),SiteChecks()),
-            isolated('HTTPS verification',asyncio.wait_for(verify_https(job.website,config,network),min(25,budget)),{'status':'unknown','summary':'Secure transport verification was incomplete.'}),
-            isolated('llms.txt inspection',inspect_llms(job.website,config,network,budget),{'status':'Review','summary':'Optional file unavailable.'}),
+            isolated('Site inspection',audit_site(website,pages,config,budget,request=network.request),SiteChecks()),
+            isolated('HTTPS verification',asyncio.wait_for(verify_https(website,config,network),min(25,budget)),{'status':'unknown','summary':'Secure transport verification was incomplete.'}),
+            isolated('llms.txt inspection',inspect_llms(website,config,network,budget),{'status':'Review','summary':'Optional file unavailable.'}),
             isolated('Media verification',verify_media(pages,config,network,budget)),
             isolated('PageSpeed',measure_performance(pages,config,budget)))
         if links is None:
             links = [LinkResult(url=url,source_pages=sources,status='unknown',reason='Link verification was incomplete.') for url,sources in link_sources(pages).items()]
         for link in links: link.redirect_chain = network.traces.get(link.url,[])
         site_checks.https, site_checks.llms_txt = https, llms
-        job.report = make_report(job.website, crawl, pages, links, config, site_checks)
+        job.report = make_report(website, crawl, pages, links, config, site_checks)
+        if urlsplit(website).hostname != urlsplit(job.website).hostname:
+            job.report.requested_url = job.website
+            job.report.coverage.warnings.insert(0, f'{job.website} redirects to {website}, so this report audits {website}.')
         job.stage = 'generating_recommendations'
         summaries = []
         actions, source, note = await recommend(job.report, config, summaries)

@@ -52,6 +52,7 @@ class CrawlResult(BaseModel):
     failures: list[FetchFailure] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)
     complete: bool = True
+    start_url: str | None = None  # The address actually crawled, after following the entered URL's redirects.
 
 
 class Check(BaseModel):
@@ -151,12 +152,7 @@ class Recommendation(BaseModel):
     reason: str = Field(min_length=1, max_length=800)
     suggested_fix: str = Field(min_length=1, max_length=1200)
     metadata: MetadataProposal | None = None
-
-
-class RecommendationOutput(BaseModel):
-    executive_summary: str = Field(default='', max_length=500)
-    model_config = ConfigDict(extra='forbid')
-    recommendations: list[Recommendation] = Field(min_length=1, max_length=5)
+    source: Literal['ai', 'rules'] = 'rules'  # Set by the backend after validation, never trusted from the LLM.
 
 
 class Coverage(BaseModel):
@@ -272,6 +268,7 @@ class Report(BaseModel):
     recommendation_note: str = ''
     coverage: Coverage
     site_checks: SiteChecks = Field(default_factory=SiteChecks)
+    requested_url: str | None = None  # Set when the entered URL redirected to another website.
 
     @computed_field
     @property

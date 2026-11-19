@@ -1,10 +1,12 @@
 import asyncio
 import re
 import time
+import httpx
 from urllib.parse import urlsplit
 from backend.app.config import Settings
 from backend.app.schemas import CrawlPage, CrawlResult, FetchFailure
 from backend.app.services.url_safety import normalize_url, UnsafeURL, is_bot_challenge
+from backend.app.services.verification import VerifiedNetwork
 from bs4 import BeautifulSoup
 
 
@@ -85,9 +87,50 @@ def utility_path_patterns(url: str, config: Settings) -> list[str]:
     return ['(^|/)(' + '|'.join(segments) + ')(/|$)']
 
 
-async def crawl_website(url: str, config: Settings) -> CrawlResult:
+async def resolve_start_url(url: str, config: Settings, network) -> str:
+    """Follow the entered URL's redirects, so a site that moved (rsgmgmt.com -> renovuscapital.com, or
+    example.com -> www.example.com) is crawled at its real address instead of being discarded as off-site."""
+    try:
+        async with httpx.AsyncClient(timeout=config.request_timeout_seconds, trust_env=False, headers={'User-Agent': 'CrawlensBot/1.0'}) as client:
+            code, _, _, final = await network.request(client, 'GET', url)
+        return normalize_url(final) if code < 400 else url
+    except (ValueError, httpx.HTTPError, TimeoutError):
+        return url
+
+
+async def landing_page(url: str, config: Settings, network) -> CrawlPage | None:
+    """Fetch only the landing page directly (robots.txt respected, no JavaScript). Used when Firecrawl gives nothing."""
+    try:
+        async with httpx.AsyncClient(timeout=config.request_timeout_seconds, trust_env=False, headers={'User-Agent': 'CrawlensBot/1.0'}) as client:
+            code, headers, html, final = await network.request(client, 'GET', url, read_body=True, max_bytes=config.max_html_bytes)
+    except (ValueError, httpx.HTTPError, TimeoutError):
+        return None
+    if code != 200 or 'html' not in headers.get('content-type', '').lower() or is_bot_challenge(code, html)             or urlsplit(final).hostname != urlsplit(url).hostname:
+        return None
+    return CrawlPage(url=normalize_url(final), html=html, raw_html=html, status_code=code, original_status_code=code, headers=headers,
+                     source_kind='http_full_html_fallback', source_notes=['Fetched directly because Firecrawl returned no usable pages; JavaScript was not run.'])
+
+
+async def crawl_website(url: str, config: Settings, network=None) -> CrawlResult:
+    """Crawl the site with Firecrawl. Follows a moved domain first, and if Firecrawl returns nothing usable,
+    audits the landing page alone instead of failing the whole audit."""
     if not config.firecrawl_api_key:
         raise CrawlError('Firecrawl is not configured. Add FIRECRAWL_API_KEY to .env and restart the backend.')
+    network = network or VerifiedNetwork()
+    start = await resolve_start_url(url, config, network)
+    try:
+        result = await firecrawl_pages(start, config)
+    except CrawlError:
+        page = await landing_page(start, config, network)
+        if page is None:
+            raise
+        result = CrawlResult(pages=[page], complete=False, warnings=[
+            'Firecrawl could not provide usable pages, so only the landing page was analyzed. It was fetched directly, without running JavaScript.'])
+    result.start_url = start
+    return result
+
+
+async def firecrawl_pages(url: str, config: Settings) -> CrawlResult:
     from firecrawl import Firecrawl
     # The synchronous SDK runs outside the event loop; each SDK request is bounded.
     client = Firecrawl(api_key=config.firecrawl_api_key, api_url=config.firecrawl_api_url, timeout=15, max_retries=0)
@@ -120,7 +163,7 @@ async def crawl_website(url: str, config: Settings) -> CrawlResult:
         except Exception:
             result.warnings.append('Provider error details were unavailable; failed-page coverage may be incomplete.')
         if not result.pages:
-            raise CrawlError('No usable HTML pages were returned. The site may restrict crawling, require sign-in, or be unavailable.')
+            raise CrawlError('No usable HTML pages were returned. The site may block crawlers, require sign-in, or be unavailable.')
         return result
     except CrawlError:
         raise

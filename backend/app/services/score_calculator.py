@@ -39,6 +39,8 @@ def observations(name, pages, links, site):
                     if asset['decorative'] or asset.get('tracking_pixel_candidate'):
                         state = 'N/A'
                         reason = 'Decorative image (empty alt or presentation role).' if asset['decorative'] else '1×1 tracking pixel; not a content image.'
+                    elif asset['alt'] is None and asset.get('link_text'):
+                        state, reason = 'Review','Image inside a link that already has text; add alt="" or a short description.'
                     elif asset['alt'] is None:
                         state, reason = 'Failed','Missing alt attribute.'
                     elif asset['alt'].strip().lower() in GENERIC_ALT:
